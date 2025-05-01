@@ -1,0 +1,55 @@
+<div id="game-area">
+    <img id="character" src="lgbtqleft.gif" alt="character">
+</div>
+
+<style>
+
+
+#character {
+    position: absolute;
+    left: 0;
+    margin-top: 450;
+    width: 440px;
+    z-index: 1;
+}
+
+.background-video {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow: hidden;
+}
+
+</style>
+<body>
+
+<video class="background-video" autoplay loop muted>
+        <source src="background2.mp4" type="video/mp4">
+</video>
+
+<script>
+let position=0;
+const character = document.getElementById("character");
+
+document.addEventListener("keydown", function(event) {
+    if (event.key ==="ArrowRight") {
+        position+=10;
+        if (position > 1050) position=1050 ;
+        character.style.left = position + "px"; 
+        character.src ="lgbtqright.gif";
+
+    }   else if (event.key ==="ArrowLeft") {
+        position-=10
+        if (position < 0) position=0 ;
+        character.style.left = position + "px";
+        character.src ="lgbtqleft.gif";
+    }
+    });
+</script>
+</body>
